@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Healthcare Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+  <div class="main-layout">
+    <aside class="sidebar">
+      <div class="sidebar-header" style="margin-top: 0;">
+        <span class="stethoscope"><i class="fa-solid fa-stethoscope"></i></span>
+        <h2>Healthcare Chatbot</h2>
+      </div>
+      <div class="sidebar-actions-vertical">
+        <button id="newChatTab" class="clear-all-btn" onclick="showNewChat()">
+          <i class="fa-solid fa-plus"></i> New Chat
+        </button>
+        <button id="historyTab" class="clear-all-btn" onclick="showHistory()">
+          <i class="fa-solid fa-clock-rotate-left"></i> History
+        </button>
+      </div>
+      <div id="new-chat-section" class="sidebar-section" style="display:block;">
+        <p style="color:#888;padding:10px;">Begin a new conversation with the chatbot.</p>
+      </div>
+      <div id="history-section" class="sidebar-section" style="display:none;">
+        <ul id="history-list" class="history-list"></ul>
+        <button class="clear-all-btn clear-bottom" onclick="clearHistory()">
+          <i class="fa-solid fa-trash"></i> Clear All
+        </button>
+      </div>
+    </aside>
+    <section class="chat-section">
+      <div class="chat-header">
+        <span class="stethoscope"><i class="fa-solid fa-stethoscope"></i></span>
+        <h1>Healthcare Chatbot</h1>
+      </div>
+      <div id="chat-box" class="chat-box"></div>
+      <div class="input-area">
+        <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" />
+        <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </section>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
